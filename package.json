@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Portfolio website with API route for contact form",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

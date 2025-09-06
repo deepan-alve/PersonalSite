@@ -1207,16 +1207,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="asset/js/infinityslide.js"></script>
     <script src="asset/js/plugin.js"></script>
     <script src="asset/js/lightbox.min.js"></script>
-    <!-- EmailJS for contact form -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // EmailJS Public Key - Get this from your EmailJS dashboard > Account > API Keys
-            emailjs.init({
-                publicKey: "TpQIAacccPn1TlZic"
-            });
-        })();
-    </script>
+    <!-- Fetch polyfill for older browsers -->
+    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js"></script>
     <script src="asset/js/main.js"></script>
     <!-- /Javascript -->
 

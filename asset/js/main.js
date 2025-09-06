@@ -149,7 +149,7 @@
     });
   };
 
-  // contact form using EmailJS
+  // contact form using secure API route
   var ajaxContactForm = function () {
     $("#form-contact").each(function () {
       $(this).validate({
@@ -160,60 +160,68 @@
           // Add loading indicator
           $form.find(".send-wrap").append(loading);
 
-          // Prepare template parameters - these match the template variables in EmailJS
-          var templateParams = {
+          // Prepare form data
+          var formData = {
             user_name: $form.find("#name").val(),
             user_email: $form.find("#mail").val(),
             user_phone: $form.find("#phone").val(),
             message: $form.find("#message").val(),
           };
 
-          // Send email using EmailJS with your actual service ID and template ID
-          emailjs
-            .send("service_9t7d4n3", "template_xdomisa", templateParams, {
-              // Optional: if you want to use a private key for extra security (available on paid plans)
-              // privateKey: "YOUR_PRIVATE_KEY"
+          // Send email using our secure API route
+          fetch("/api/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          })
+            .then(function (response) {
+              return response.json();
             })
-            .then(
-              function (response) {
-                var result = "Message sent successfully!";
-                var cls = "msg-success";
+            .then(function (data) {
+              var result = data.success
+                ? "Message sent successfully!"
+                : "Error: " + (data.error || "Unknown error");
+              var cls = data.success ? "msg-success" : "msg-error";
 
-                $form.prepend(
-                  $("<div />", {
-                    class: "flat-alert " + cls,
-                    text: result,
-                  }).append(
-                    $(
-                      '<a class="close d-flex" href="#"><i class="icon icon-times-solid"></i></a>'
-                    )
+              $form.prepend(
+                $("<div />", {
+                  class: "flat-alert " + cls,
+                  text: result,
+                }).append(
+                  $(
+                    '<a class="close d-flex" href="#"><i class="icon icon-times-solid"></i></a>'
                   )
-                );
+                )
+              );
 
-                // Clear form fields
+              // Clear form fields if successful
+              if (data.success) {
                 $form.find(":input").not(".submit").val("");
-                // Remove loading indicator
-                $form.find(".loading").remove();
-              },
-              function (error) {
-                var result = "Error sending email. Please try again later.";
-                var cls = "msg-error";
-
-                $form.prepend(
-                  $("<div />", {
-                    class: "flat-alert " + cls,
-                    text: result,
-                  }).append(
-                    $(
-                      '<a class="close d-flex" href="#"><i class="icon icon-times-solid"></i></a>'
-                    )
-                  )
-                );
-
-                // Remove loading indicator
-                $form.find(".loading").remove();
               }
-            );
+
+              // Remove loading indicator
+              $form.find(".loading").remove();
+            })
+            .catch(function (error) {
+              var result = "Error sending email. Please try again later.";
+              var cls = "msg-error";
+
+              $form.prepend(
+                $("<div />", {
+                  class: "flat-alert " + cls,
+                  text: result,
+                }).append(
+                  $(
+                    '<a class="close d-flex" href="#"><i class="icon icon-times-solid"></i></a>'
+                  )
+                )
+              );
+
+              // Remove loading indicator
+              $form.find(".loading").remove();
+            });
         },
       });
     });
