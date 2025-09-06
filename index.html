@@ -38,17 +38,94 @@
     
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="asset/images/logo/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="asset/images/logo/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="asset/images/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/images/logo/favicon-16x16.png">
+    <link rel="manifest" href="asset/images/logo/site.webmanifest">
+    <link rel="shortcut icon" href="asset/images/logo/favicon.ico">
 
 </head>
 
 <body class="counter-scroll">
+<style>
+    /* Adjust space after hero description and list-tags */
+    .main-title {
+        margin-bottom: 16px !important;
+    }
+    .main-title .text-body-2.text {
+        margin-bottom: 12px !important;
+    }
+    .list-tags {
+        margin-bottom: 60px !important;
+    }
+    .indicators {
+        margin-top: 0 !important;
+    }
+    /* Hide the floating settings icon */
+    .tf-setting-color {
+        display: none !important;
+    }
+    
+    /* Set 16:9 aspect ratio for works section images */
+    .works-wrap .works-item .image {
+        aspect-ratio: 16/9;
+        position: relative;
+        overflow: hidden;
+    }
+    .works-wrap .works-item .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    /* About section styles */
+    .about-content {
+        margin-bottom: 40px;
+    }
+    .about-content p {
+        line-height: 1.8;
+    }
+    .mb-4 {
+        margin-bottom: 24px;
+    }
+    /* Reduce space between About Me heading and description */
+    .section-about .heading {
+        margin-bottom: 15px !important;
+    }
+    .section-about .heading + .about-content {
+        margin-top: 0;
+    }
+</style>
+
+<!-- Chennai time script -->
+<script>
+function updateChennaiTime() {
+    const now = new Date();
+    // Convert to IST (UTC+5:30)
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const istOffset = 5.5 * 60 * 60000;
+    const istTime = new Date(utc + istOffset);
+    let hours = istTime.getHours();
+    let minutes = istTime.getMinutes();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    const timeString = hours + ':' + minutes + ' ' + ampm;
+    document.getElementById('chennai-time').textContent = ' ' + timeString;
+}
+document.addEventListener('DOMContentLoaded', function() {
+    updateChennaiTime();
+    setInterval(updateChennaiTime, 60000);
+});
+</script>
+
     <!-- Start Wrapper -->
     <div id="wrapper">
 
-        <video class="body-overlay" muted autoplay loop playsinline >
-            <source src="asset/images/bg-3d/video4.mp4" type="video/mp4">
+        <video class="body-overlay" muted autoplay loop playsinline>
+            <source src="asset/images/bg-3d/video5.mp4" type="video/mp4">
         </video>
 
         <!-- tf-btn-menu -->
@@ -130,16 +207,16 @@
                     <div class="heading text-body-1 dot-before">Social Network</div>
                     <ul class="social-links">
                         <li>
-                            <a href="#"><i class="icon icon-twitter-x"></i></a>
+                            <a href="https://www.linkedin.com/in/deepanalve/" target="_blank"><i class="icon icon-linkedin-in"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="icon icon-dribbble"></i></a>
+                            <a href="https://github.com/deepan-alve" target="_blank"><i class="icon icon-github"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="icon icon-instagram"></i></a>
+                            <a href="https://www.instagram.com/licht.tik" target="_blank"><i class="icon icon-instagram"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="icon icon-facebook-f"></i></a>
+                            <a href="https://medium.com/@realtisme" target="_blank"><i class="icon icon-medium"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -176,12 +253,12 @@
     
                         <h6 class="title">THREE DIMENSIONAL SHAPES</h6>
                         <ul class="settings-themes">
-                            <li><a href="index.html" class="active">Liquids Wavy</a></li>
+                            <li><a href="index.html">Liquids Wavy</a></li>
                             <li><a href="home1-v2.html">3D Abstract Ball</a></li>
                             <li><a href="home1-v3.html">Water Waves</a></li>
                             <li><a href="home1-v4.html">Earth Lines Sphere</a></li>
                             <li><a href="home1-v5.html">Solid Color</a></li>
-                            <li><a href="home1-v6.html">Simple Strings</a></li>
+                            <li><a href="home1-v6.html" class="active">Simple Strings</a></li>
                         </ul>
                     </div>
                 </div>
@@ -243,19 +320,19 @@
         <!-- /right-nav -->
 
         <!-- left-sidebar -->
-        <div class="left-sidebar">                
+        <div class="left-sidebar">
             <div class="heading">
                 <img src="asset/images/logo/logo-1.svg" alt="">
                 <div class="box-status">
                     <div class="dot"></div>
-                    <div class="text-body-1">Available for <span class="number">3 projects</span></div>
+                    <div class="text-body-1"><a href="asset/pdfs/Resume.pdf" target="_blank" style="text-decoration: none; color: inherit;">Download Resume</a></div>
                 </div>
             </div>
             <div class="image">
-                <div class="avatar avatar-wrap">
-                                            <img class="lazyload avatar-bg" src="asset/images/avatar/avatar-full.png" data-src="asset/images/avatar/avatar-full.png" alt="">
-                                            <img class="lazyload avatar-no-bg" style="display: none;" src="asset/images/avatar/avatar-1.png" data-src="asset/images/avatar/avatar-1.png" alt="">
-                                        </div>
+               <div class="avatar avatar-wrap">
+                    <img class="lazyload avatar-bg" src="asset/images/avatar/avatar-full.png" data-src="asset/images/avatar/avatar-full.png" alt="">
+                    <img class="lazyload avatar-no-bg" style="display: none;" src="asset/images/avatar/avatar-1.png" data-src="asset/images/avatar/avatar-1.png" alt="">
+                </div>
                 <img class="lazyload signature" src="asset/images/section/signature-1.png" data-src="asset/images/section/signature-1.png" alt="">
                 <!-- <div class="text-signature">Deepan</div> -->
             </div>
@@ -265,16 +342,16 @@
             </div>
             <ul class="social-links justify-content-center">
                 <li>
-                    <a href="#"><i class="icon icon-twitter-x"></i></a>
+                    <a href="https://www.linkedin.com/in/deepanalve/" target="_blank"><i class="icon icon-linkedin-in"></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="icon icon-dribbble"></i></a>
+                    <a href="https://github.com/deepan-alve" target="_blank"><i class="icon icon-github"></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="icon icon-instagram"></i></a>
+                    <a href="https://www.instagram.com/licht.tik" target="_blank"><i class="icon icon-instagram"></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="icon icon-facebook-f"></i></a>
+                    <a href="https://medium.com/@realtisme" target="_blank"><i class="icon icon-medium"></i></a>
                 </li>
             </ul>
             <a href="#contact" class="bot-button">
@@ -291,36 +368,39 @@
                 <div class="tf-container">
                     <div class="row">
                         <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
-                            <div class="icon-gradient"></div>
-                            <div class="text-body-1 infor split-text split-lines-transform">San Francisco, CA 10:24 AM</div>
+                            <div class="text-body-1 infor split-text split-lines-transform">Chennai, India <span id="chennai-time"></span></div>
                             <div class="main-title">
                                 <div class="text-body-1 dot-before subtitle">Introduction</div>
-                                <h1 class="title split-text effect-right">Making Your World a Pain <br> Free Experience</h1>
-                                <div class="text-body-2 text">My passion lies in crafting elegant, straightforward digital experiences. <br> It's a love for simplicity, pure and simple</div>
+                                <h1 class="title split-text effect-right">It takes gut to fall in love with something</h1>
+                                <div class="text-body-2 text">Driven Computer Science student specializing in cybersecurity and software development, recognized for top CTF placements and leadership in coding clubs. Skilled in building secure, modular full-stack apps and modernizing legacy systems, with expertise in TypeScript, Python, C++, React, and cloud platforms. Award-winning technologist and creative, bridging technical innovation with impactful user experiences in media, sports, and technology outreach.</div>
                             </div>
                             <div class="indicators">
                                 <ul class="list-tags">
-                                    <li><a class="text-body-2 wow fadeInUp" href="#">Branding</a></li>
-                                    <li><a class="text-body-2 wow fadeInUp" data-wow-delay="0.1s" href="#">Art Direction</a></li>
-                                    <li><a class="text-body-2 wow fadeInUp" data-wow-delay="0.2s" href="#">UI Design</a></li>
-                                    <li><a class="text-body-2 wow fadeInUp" href="#">Webflow Development</a></li>
+                                    <li><a class="text-body-2 wow fadeInUp" href="#">CyberSec</a></li>
+                                    <li><a class="text-body-2 wow fadeInUp" href="#">Backend Developer</a></li>
+                                    <li><a class="text-body-2 wow fadeInUp" href="#">MernStack Developer</a></li>
+                                    <li><a class="text-body-2 wow fadeInUp" href="#">Editor</a></li>
+                                    <li><a class="text-body-2 wow fadeInUp" href="#">Script Writter</a></li>
+                                    <li><a class="text-body-2 wow fadeInUp" href="#">Blogger</a></li>
+                                    <li><a class="text-body-2 wow fadeInUp" href="#">Devops</a></li>
+                                    
                                 </ul>
                                 <div class="indicators-wrap">
                                     <div class="indicators-item wow fadeInUp">
-                                        <div class="text-body-1 dot-before indicators-title">Net Worth Gross</div>
+                                        <div class="text-body-1 dot-before indicators-title">Projects Done</div>
                                         <div class="wg-counter style-1">
                                             <div class="flex align-items-center justify-content-end">
-                                                <div class="odometer text-display-2" data-number="20">10</div>
-                                                <span class="sub-odo text-display-2">M+</span>
+                                                <div class="odometer text-display-2" data-number="25">10</div>
+                                                <span class="sub-odo text-display-2">+</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="indicators-item type-1 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="text-body-1 dot-before indicators-title">Success Rate</div>
+                                        <div class="text-body-1 dot-before indicators-title">Git Pushes</div>
                                         <div class="wg-counter style-1">
                                             <div class="flex align-items-center justify-content-end">
-                                                <div class="odometer text-display-2" data-number="98">10</div>
-                                                <span class="sub-odo text-display-2">%</span>
+                                                <div class="odometer text-display-2" data-number="500">169</div>
+                                                <span class="sub-odo text-display-2">+</span>
                                             </div>
                                         </div>
                                     </div>
@@ -340,28 +420,28 @@
                             <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
                                 <div class="text-body-2 dot-before subtitle">Experiences</div>
                                 <h2 class="desc text-color-change text-tab">
-                                    <span></span> I will offers more than just a place to live it’s a space designed to reflect your unique style inspiration 
+                                    <span></span> “The ones who are crazy enough to think they can change the world are the ones who do.” – Steve Jobs
                                 </h2>
                                 <div class="experiences-wrap">
                                     <div class="item scrolling-effect effectLeft">
                                         <div class="sub-heading text">Fanpit</div>
                                         <div class="job-title">
-                                            <h6 class="title">Product Designer</h6>
-                                            <div class="text-body-2 time-line type-tags">2022 - 2023</div>
+                                            <h6 class="title">Intern</h6>
+                                            <div class="text-body-2 time-line type-tags">2025 - Present</div>
                                         </div>
                                     </div>
                                     <div class="item scrolling-effect effectLeft">
                                         <div class="sub-heading text">Azhagi</div>
                                         <div class="job-title">
-                                            <h6 class="title">Product Designer</h6>
-                                            <div class="text-body-2 time-line type-tags">2022 - 2023</div>
+                                            <h6 class="title">System Re-architect & Integration Developer</h6>
+                                            <div class="text-body-2 time-line type-tags">2024 - 2025</div>
                                         </div>
                                     </div>
                                     <div class="item scrolling-effect effectLeft">
                                         <div class="sub-heading text">Freelancing</div>
                                         <div class="job-title">
-                                            <h6 class="title">Product Designer</h6>
-                                            <div class="text-body-2 time-line type-tags">2022 - 2023</div>
+                                            <h6 class="title">Full-Stack Developer</h6>
+                                            <div class="text-body-2 time-line type-tags">2020 - 2024</div>
                                         </div>
                                     </div>
                                 </div>
@@ -393,8 +473,8 @@
                                 </div>
                                 <div class="works-wrap">
                                     <div class="works-item scrolling-effect effectLeft">
-                                        <a class="image" href="asset/images/section/works-1.jpg" data-lightbox="example-1">
-                                            <img class="lazyload" src="asset/images/section/works-1.jpg" data-src="asset/images/section/works-1.jpg" alt="">
+                                        <a class="image" href="asset/images/section/works-2.jpg" data-lightbox="example-1">
+                                            <img class="lazyload" src="asset/images/section/works-2.jpg" data-src="asset/images/section/works-2.jpg" alt="">
                                         </a>
                                         <div class="content">
                                             <div class="infor">
@@ -410,14 +490,14 @@
                                         </div>
                                     </div>
                                     <div class="works-item scrolling-effect effectLeft">
-                                        <a class="image" href="asset/images/section/works-2.jpg" data-lightbox="example-1">
-                                            <img class="lazyload" src="asset/images/section/works-2.jpg" data-src="asset/images/section/works-2.jpg" alt="">
+                                        <a class="image" href="asset/images/section/works-1.jpg" data-lightbox="example-1">
+                                            <img class="lazyload" src="asset/images/section/works-1.jpg" data-src="asset/images/section/works-1.jpg" alt="">
                                         </a>
                                         <div class="content">
                                             <div class="infor">
                                                 <div class="sub-heading sub">Mobile App Design</div>
                                                 <h3 class="title">
-                                                    <a href="#">X-direct Mobile</a>
+                                                    <a href="#">Win My Arugument</a>
                                                 </h3>
                                                 <a href="#" class="link date text-body-2 type-tags">May 2024</a>
                                             </div>
@@ -434,7 +514,7 @@
                                             <div class="infor">
                                                 <div class="sub-heading sub">Website Design</div>
                                                 <h3 class="title">
-                                                    <a href="#">UIXDR Agency Website</a>
+                                                    <a href="#">NGL-Hacked</a>
                                                 </h3>
                                                 <a href="#" class="link date text-body-2 type-tags">May 2024</a>
                                             </div>
@@ -456,24 +536,24 @@
                         <div class="row">
                             <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
                                 <div class="section-services-inner">
-                                    <div class="text-body-2 dot-before subtitle">My Services</div>
+                                    <div class="text-body-2 dot-before subtitle">Additional Skills</div>
                                     <div class="services-wrap accordion-wrap" id="accordion-services">
                                         <div class="item active accordion-item" data-bs-toggle="collapse" role="button" 
                                             data-bs-target="#collapse-services-1" aria-expanded="true" aria-controls="collapse-services-1">
                                             <div class="heading accordion-head">
                                                 <div class="icon">
-                                                    <i class="icon-pen-nib-solid"></i>
+                                                    <i class="icon-camera-solid"></i>
                                                 </div>
                                                 <div class="text-display-2 title fw-medium">
-                                                    <div class="split-text effect-right">Graphic Design</div>
+                                                    <div class="split-text effect-right">Photography</div>
                                                     <span class="text-body-1">(01)</span>
                                                 </div>
                                             </div>
                                             <div id="collapse-services-1" class="accordion-collapse collapse show" data-bs-parent="#accordion-services">
                                                 <div class="list-text">
-                                                    <div class="text sub-heading">Typography & Color Systems</div>
-                                                    <div class="text sub-heading">Logo Design</div>
-                                                    <div class="text sub-heading">Brand Guidelines</div>
+                                                    <div class="text sub-heading">Portrait & Landscape Photography</div>
+                                                    <div class="text sub-heading">Advanced Image Composition</div>
+                                                    <div class="text sub-heading">WildLife Photography</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -481,18 +561,18 @@
                                             data-bs-target="#collapse-services-2" aria-expanded="true" aria-controls="collapse-services-2">
                                             <div class="heading accordion-head">
                                                 <div class="icon">
-                                                    <i class="icon-ribbon-solid"></i>
+                                                    <i class="icon-video-solid"></i>
                                                 </div>
                                                 <div class="text-display-2 title fw-medium">
-                                                    <div class="split-text effect-right">UI/UX Design</div>
+                                                    <div class="split-text effect-right">Video Editing</div>
                                                     <span class="text-body-1">(02)</span>
                                                 </div>
                                             </div>
                                             <div id="collapse-services-2" class="accordion-collapse collapse" data-bs-parent="#accordion-services">
                                                 <div class="list-text">
-                                                    <div class="text sub-heading">Iconography </div>
-                                                    <div class="text sub-heading">Imagery & Photography Style</div>
-                                                    <div class="text sub-heading">Grid & Layout Systems</div>
+                                                    <div class="text sub-heading">Motion Graphics & VFX</div>
+                                                    <div class="text sub-heading">Music Edits</div>
+                                                    <div class="text sub-heading">Documentary Video Essays</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -500,18 +580,18 @@
                                             data-bs-target="#collapse-services-3" aria-expanded="true" aria-controls="collapse-services-3">
                                             <div class="heading accordion-head">
                                                 <div class="icon">
-                                                    <i class="icon-crop-alt-solid"></i>
+                                                    <i class="icon-pen-solid"></i>
                                                 </div>
                                                 <div class="text-display-2 title fw-medium">
-                                                    <div class="split-text effect-right">Webflow Dev</div>
+                                                    <div class="split-text effect-right">Script Writing</div>
                                                     <span class="text-body-1">(03)</span>
                                                 </div>
                                             </div>
                                             <div id="collapse-services-3" class="accordion-collapse collapse" data-bs-parent="#accordion-services">
                                                 <div class="list-text">
-                                                    <div class="text sub-heading">UI Components Library</div>
-                                                    <div class="text sub-heading">Motion & Animation Guidelines</div>
-                                                    <div class="text sub-heading">Design Tokens</div>
+                                                    <div class="text sub-heading">Shortflims scripts</div>
+                                                    <div class="text sub-heading">Novels and Shortstory</div>
+                                                    <div class="text sub-heading">Blog Writting</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -519,18 +599,18 @@
                                             data-bs-target="#collapse-services-4" aria-expanded="true" aria-controls="collapse-services-4">
                                             <div class="heading accordion-head">
                                                 <div class="icon">
-                                                    <i class="icon-chess-knight-solid"></i>
+                                                    <i class="icon-search-solid"></i>
                                                 </div>
                                                 <div class="text-display-2 title fw-medium">
-                                                    <div class="split-text effect-right">Framer Dev</div>
+                                                    <div class="split-text effect-right">R&D Specialist</div>
                                                     <span class="text-body-1">(04)</span>
                                                 </div>
                                             </div>
                                             <div id="collapse-services-4" class="accordion-collapse collapse" data-bs-parent="#accordion-services">
                                                 <div class="list-text">
-                                                    <div class="text sub-heading">Social Media Guidelines</div>
-                                                    <div class="text sub-heading">Brand Architecture</div>
-                                                    <div class="text sub-heading">Print Assets</div>
+                                                    <div class="text sub-heading">Trend Analysis & Market Research</div>
+                                                    <div class="text sub-heading">Prototype Development</div>
+                                                    <div class="text sub-heading">Technical Documentation & Reports</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -559,69 +639,13 @@
                             <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
                                 <div class="heading">
                                     <div class="text-body-2 dot-before subtitle fw-medium">About Me</div>
-                                    <div>
-                                        <h2 class="fw-medium title text-color-change">Behind every great design is an even greater story</h2>
-                                        <div class="text-body-2 text">Every design has a starting point, and for truly impactful visuals. It's the narrative that guides the creative process, ensuring the final product resonates with meaning and purpose. We believe that understanding the story is paramount.</div>
-                                    </div>
                                 </div>
-                                <div class="box-playground">
-                                    <div class="top">
-                                        <div class="text-body-1 fw-medium instagram-tag">@Deepan.design</div>
-                                        <div class="box-nav style-1">
-                                            <div class="nav-sw navigation-prev-playground">
-                                                <span class="icon icon-angle-left-solid"></span>
-                                            </div>
-                                            <div class="nav-sw navigation-next-playground">
-                                                <span class="icon icon-angle-right-solid"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wrap-swiper">
-                                        <div class="swiper slider-playground swiper-auto">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <a href="asset/images/section/playground-1.jpg" data-lightbox="example-2">
-                                                        <img class="lazyload" src="asset/images/section/playground-1.jpg" data-src="asset/images/section/playground-1.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="asset/images/section/playground-2.jpg" data-lightbox="example-2">
-                                                        <img class="lazyload" src="asset/images/section/playground-2.jpg" data-src="asset/images/section/playground-2.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="asset/images/section/playground-3.jpg" data-lightbox="example-2">
-                                                        <img class="lazyload" src="asset/images/section/playground-3.jpg" data-src="asset/images/section/playground-3.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="asset/images/section/playground-4.jpg" data-lightbox="example-2">
-                                                        <img class="lazyload" src="asset/images/section/playground-4.jpg" data-src="asset/images/section/playground-4.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="asset/images/section/playground-1.jpg" data-lightbox="example-2">
-                                                        <img class="lazyload" src="asset/images/section/playground-1.jpg" data-src="asset/images/section/playground-1.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="asset/images/section/playground-2.jpg" data-lightbox="example-2">
-                                                        <img class="lazyload" src="asset/images/section/playground-2.jpg" data-src="asset/images/section/playground-2.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="asset/images/section/playground-3.jpg" data-lightbox="example-2">
-                                                        <img class="lazyload" src="asset/images/section/playground-3.jpg" data-src="asset/images/section/playground-3.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="asset/images/section/playground-4.jpg" data-lightbox="example-2">
-                                                        <img class="lazyload" src="asset/images/section/playground-4.jpg" data-src="asset/images/section/playground-4.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="about-content">
+                                    <p class="text-body-1 mb-4">I'm a passionate Computer Science student specializing in cybersecurity and software development. With a keen interest in building secure, efficient applications, I blend technical innovation with impactful user experiences.</p>
+                                    
+                                    <p class="text-body-1 mb-4">My journey has included top placements in CTF competitions, leadership roles in coding clubs, and extensive experience in full-stack development. I'm particularly skilled in TypeScript, Python, C++, React, and various cloud platforms.</p>
+                                    
+                                    <p class="text-body-1">When I'm not coding, you'll find me exploring photography, editing videos, writing scripts, or researching emerging technologies. I believe in continuous learning and pushing boundaries in everything I do.</p>
                                 </div>
                             </div>
                         </div>
@@ -638,47 +662,56 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="tech-stack-item">
-                                                <h3 class="fw-medium title">Figma</h3>
+                                                <h3 class="fw-medium title">TypeScript</h3>
                                                 <div class="image">
                                                     <img src="asset/images/section/figma.png" alt="">
                                                 </div>
-                                                <div class="text-body-1">Leading collaborative design <br> tool</div>
+                                                <div class="text-body-1">Strongly typed JavaScript <br> for scalable applications</div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="tech-stack-item">
-                                                <h3 class="fw-medium title">Loom</h3>
+                                                <h3 class="fw-medium title">React</h3>
                                                 <div class="image">
                                                     <img src="asset/images/section/loom.png" alt="">
                                                 </div>
-                                                <div class="text-body-1">Leading collaborative design tool</div>
+                                                <div class="text-body-1">Component-based library <br> for dynamic UIs</div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="tech-stack-item">
-                                                <h3 class="fw-medium title">Framer</h3>
+                                                <h3 class="fw-medium title">Docker</h3>
                                                 <div class="image">
                                                     <img src="asset/images/section/framer.png" alt="">
                                                 </div>
-                                                <div class="text-body-1">Leading collaborative design tool</div>
+                                                <div class="text-body-1">Containerization platform <br> for consistent deployment</div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="tech-stack-item">
-                                                <h3 class="fw-medium title">Slack</h3>
+                                                <h3 class="fw-medium title">Github</h3>
                                                 <div class="image">
                                                     <img src="asset/images/section/slack.png" alt="">
                                                 </div>
-                                                <div class="text-body-1">Leading collaborative design tool</div>
+                                                <div class="text-body-1">Version control and <br> collaboration platform</div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="tech-stack-item">
-                                                <h3 class="fw-medium title">Monday</h3>
+                                                <h3 class="fw-medium title">Python</h3>
                                                 <div class="image">
                                                     <img src="asset/images/section/monday.png" alt="">
                                                 </div>
-                                                <div class="text-body-1">Leading collaborative design tool</div>
+                                                <div class="text-body-1">Versatile language for <br> automation and security</div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="tech-stack-item">
+                                                <h3 class="fw-medium title">Java</h3>
+                                                <div class="image">
+                                                    <img src="asset/images/section/java.png" alt="">
+                                                </div>
+                                                <div class="text-body-1">Enterprise-grade language <br> for robust applications</div>
                                             </div>
                                         </div>
                                     </div>
@@ -700,13 +733,16 @@
                                         <div class="swiper slider-testimonial">
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
-                                                    <h3 class="fw-medium text">“ A studio with passionate, professional and full creativity. Much more than i’m expect. Great services, high quality products & affordable. ”</h3>
+                                                    <h3 class="fw-medium text">“Full stack? More like full package—killer dev, video genius, animation pro, and the best buddy to work with!”</h3>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <h3 class="fw-medium text">“ A little universe of inspiration — where passion meets professionalism and creativity knows no bounds. Exceptional service, stunning products that made me go 'wow' at first glance, and prices that make you smile! ”</h3>
+                                                    <h3 class="fw-medium text">“Working with Deepan was a game-changer. His clean, efficient code and ability to balance technical excellence with business needs, along with his leadership through challenges, were invaluable. ”</h3>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <h3 class="fw-medium text">“ This studio is on another level! Super creative, totally pro, and packed with good vibes. Loved the service, obsessed with the quality — and the prices? Totally worth it! ”</h3>
+                                                    <h3 class="fw-medium text">“Deepan brings clarity and precision to every project. His problem-solving skills and leadership made our work both smooth and successful”</h3>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <h3 class="fw-medium text">“ Deepan’s code quality and guidance stood out. He combines technical depth with a practical approach that keeps projects on track ”</h3>
                                                 </div>
                                             </div>
                                             <div class="box-nav style-2">
@@ -726,39 +762,52 @@
                                                 <div class="swiper-slide">
                                                     <div class="customer-info">
                                                         <div class="image">
+                                                            <img class="lazyload" src="asset/images/avatar/dhaskshitha.png" data-src="asset/images/avatar/dhaskshitha.png" alt="">
+                                                        </div>
+                                                        <div class="content">
+                                                            <h6 class="name fw-medium">
+                                                                <a href="#" class="link">Dhakshitha</a>
+                                                            </h6>
+                                                            <div class="text-body-2 info">Dzart- Content Creator</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="customer-info">
+                                                        <div class="image">
                                                             <img class="lazyload" src="asset/images/avatar/avatar-2.jpg" data-src="asset/images/avatar/avatar-2.jpg" alt="">
                                                         </div>
                                                         <div class="content">
                                                             <h6 class="name fw-medium">
-                                                                <a href="#" class="link">Lewis Jones</a>
+                                                                <a href="#" class="link">Tejas</a>
                                                             </h6>
-                                                            <div class="text-body-2 info">Ceo of Avade Inc</div>
+                                                            <div class="text-body-2 info">Ceo of FanPit Technologies</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="swiper-slide">
                                                     <div class="customer-info">
                                                         <div class="image">
-                                                            <img class="lazyload" src="asset/images/avatar/avatar-3.jpg" data-src="asset/images/avatar/avatar-3.jpg" alt="">
+                                                            <img class="lazyload" src="asset/images/avatar/avatar-3.png" data-src="asset/images/avatar/avatar-3.png" alt="">
                                                         </div>
                                                         <div class="content">
                                                             <h6 class="name fw-medium">
-                                                                <a href="#" class="link">Deepan</a>
+                                                                <a href="#" class="link">Viswanathan</a>
                                                             </h6>
-                                                            <div class="text-body-2 info">Ceo of Avade Inc</div>
+                                                            <div class="text-body-2 info">Creator of Azhagi</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="swiper-slide">
                                                     <div class="customer-info">
                                                         <div class="image">
-                                                            <img class="lazyload" src="asset/images/avatar/avatar-4.jpg" data-src="asset/images/avatar/avatar-4.jpg" alt="">
+                                                            <img class="lazyload" src="asset/images/avatar/avatar-4.png" data-src="asset/images/avatar/avatar-4.png" alt="">
                                                         </div>
                                                         <div class="content">
                                                             <h6 class="name fw-medium">
-                                                                <a href="#" class="link">Musk</a>
+                                                                <a href="#" class="link">Jhoshua</a>
                                                             </h6>
-                                                            <div class="text-body-2 info">Ceo of Avade Inc</div>
+                                                            <div class="text-body-2 info">Ceo of Blitz</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -771,50 +820,8 @@
                     </div>
                 </section>
                 <!-- /section-testimonial -->
-                <!-- section-partners -->
-                <section class="section-partners" id="partners">
-                    <div class="tf-container">
-                        <div class="row">
-                            <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
-                                <div class="text-body-2 dot-before subtitle">Clients</div>
-                                <h2 class="desc text-color-change text-tab">
-                                    <span></span> Haven offers more than just a place to live it’s a space designed to reflect your unique style inspiration 
-                                </h2>
-                                <div class="swiper slider-partners swiper-auto">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="partners-item">
-                                                <img src="asset/images/partners/logo_zm.svg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="partners-item">
-                                                <img src="asset/images/partners/Union.svg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="partners-item">
-                                                <img src="asset/images/partners/archin.svg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="partners-item">
-                                                <img src="asset/images/partners/Symbol.svg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="partners-item">
-                                                <img src="asset/images/partners/Github_logo.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- /section-partners -->
-                <!-- section-process -->
+                
+                <!-- section-process 
                 <section class="section-process">
                     <div class="tf-container">
                         <div class="row">
@@ -884,7 +891,7 @@
                         </div>
                     </div>
                 </section>
-                <!-- /section-process -->
+                --> 
                 <!-- section-awards -->
                 <section class="section-awards" id="awards">
                     <div class="tf-container">
@@ -894,23 +901,23 @@
                                 <div class="list-awards">
                                     <div class="award-item scrolling-effect effectLeft">
                                         <h6 class="number fw-medium">1</h6>
-                                        <h6 class="title fw-medium">Awards Site of the Day - Hubfolio</h6>
-                                        <div class="time text-body-1">3/8/2024</div>
+                                        <h6 class="title fw-medium">EditaCTF - Winners 2024</h6>
+                                        <div class="time text-body-1">5/10/2024</div>
                                     </div>
                                     <div class="award-item scrolling-effect effectLeft">
                                         <h6 class="number fw-medium">2</h6>
-                                        <h6 class="title fw-medium">Dribbble - Top Dependent Designer of the year</h6>
-                                        <div class="time text-body-1">3/8/2024</div>
+                                        <h6 class="title fw-medium">SIH WINNING TEAM - 2025</h6>
+                                        <div class="time text-body-1">3/15/2025</div>
                                     </div>
                                     <div class="award-item scrolling-effect effectLeft">
                                         <h6 class="number fw-medium">3</h6>
-                                        <h6 class="title fw-medium">CSS Web Design Awards - Site of the Month</h6>
-                                        <div class="time text-body-1">3/8/2024</div>
+                                        <h6 class="title fw-medium">27th Place in HPCodewars</h6>
+                                        <div class="time text-body-1">11/20/2024</div>
                                     </div>
                                     <div class="award-item scrolling-effect effectLeft">
                                         <h6 class="number fw-medium">4</h6>
-                                        <h6 class="title fw-medium">Top 10 Behance Desinger 2024</h6>
-                                        <div class="time text-body-1">3/8/2024</div>
+                                        <h6 class="title fw-medium">Runners Up in Shashtra IIT - 2024</h6>
+                                        <div class="time text-body-1">4/5/2024</div>
                                     </div>
                                 </div>
                             </div>
@@ -918,7 +925,7 @@
                     </div>
                 </section>
                 <!-- /section-awards -->
-                <!-- section-pricing -->
+                <!--
                 <section class="section-pricing" id="pricing">
                     <div class="tf-container wg-tabs">
                         <div class="row">
@@ -986,7 +993,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#contact" class="custom-quote fw-medium h3 wow fadeInUp" data-wow-delay="0.1s">
+                               <a href="#contact" class="custom-quote fw-medium h3 wow fadeInUp" data-wow-delay="0.1s">
                                     Custom Quote
                                     <i class="icon icon-arrow-top-right"></i>
                                 </a>
@@ -994,79 +1001,8 @@
                         </div>
                     </div>
                 </section>
-                <!-- /section-pricing -->
-                <!-- section-faqs -->
-                <section class="section-faqs" id="faqs">
-                    <div class="tf-container">
-                        <div class="row">
-                            <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
-                                <div class="text-display-2 fw-medium heading split-text effect-right">FAQs</div>
-                                <div class="accordion-wrap" id="accordion-1">
-                                    <div class="item active accordion-item scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                        <h6 class="accordion-head fw-medium">
-                                            What’s the Deepan progress like?
-                                            <span class="icon"></span>
-                                        </h6>
-                                        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#accordion-1">
-                                            <p class="text-body-2 fw-medium">
-                                                I specialize in UX/UI design, web development, and branding for individuals <br> and businesses.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="item accordion-item collapsed scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        <h6 class="accordion-head fw-medium">
-                                            Design delivery time estimate?
-                                            <span class="icon"></span>
-                                        </h6>
-                                        <div id="collapse2" class="accordion-collapse collapse " data-bs-parent="#accordion-1">
-                                            <p class="text-body-2 fw-medium">
-                                                I specialize in UX/UI design, web development, and branding for individuals <br> and businesses.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="item accordion-item collapsed scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                        <h6 class="accordion-head fw-medium">
-                                            What services do you offer?
-                                            <span class="icon"></span>
-                                        </h6>
-                                        <div id="collapse3" class="accordion-collapse collapse " data-bs-parent="#accordion-1">
-                                            <p class="text-body-2 fw-medium">
-                                                I specialize in UX/UI design, web development, and branding for individuals <br> and businesses.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="item accordion-item collapsed scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                        <h6 class="accordion-head fw-medium">
-                                            What if I don’t like design?
-                                            <span class="icon"></span>
-                                        </h6>
-                                        <div id="collapse4" class="accordion-collapse collapse " data-bs-parent="#accordion-1">
-                                            <p class="text-body-2 fw-medium">
-                                                I specialize in UX/UI design, web development, and branding for individuals <br> and businesses.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="item accordion-item collapsed scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                        <h6 class="accordion-head fw-medium">
-                                            Are there any refund?
-                                            <span class="icon"></span>
-                                        </h6>
-                                        <div id="collapse5" class="accordion-collapse collapse " data-bs-parent="#accordion-1">
-                                            <p class="text-body-2 fw-medium">
-                                                I specialize in UX/UI design, web development, and branding for individuals <br> and businesses.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ask-me">
-                                    <div class="text-body-2 fw-medium text">Do you have any other questions?</div>
-                                    <a href="#contact" class="text-body-2 fw-medium link">Ask me directly</a>
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
-                </section>
-                <!-- /section-faqs -->
+                g -->
+                
                 <!-- section-contact -->
                 <section class="section-contact" id="contact">
                     <div class="tf-container">
@@ -1074,26 +1010,30 @@
                             <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
                                 <div class="section-contact-inner">
                                     <h1 class="fw-medium heading">Contact For <br> Work</h1>
-                                    <form action="./asset/contact/contact-process.php" class="form-contact" id="form-contact" method="post">
+                                    <form class="form-contact" id="form-contact" method="post">
                                         <fieldset class="fiel-mail">
                                             <label class="text-xs-2">Your Email</label>
-                                            <input type="email" name="mail" id="mail" placeholder="Enter the Email" value="" aria-required="true" required>
+                                            <input type="email" name="user_email" id="mail" placeholder="Enter the Email" value="" aria-required="true" required>
+                                        </fieldset>
+                                        <fieldset class="fiel-name">
+                                            <label class="text-xs-2">Your Name</label>
+                                            <input type="text" name="user_name" id="name" placeholder="Enter your name" value="" aria-required="true" required>
                                         </fieldset>
                                         <fieldset class="fiel-phone">
                                             <label class="text-xs-2">Your Phone</label>
-                                            <input type="text" name="phone" id="phone" placeholder="Enter your phone number" value="" aria-required="true" required>
+                                            <input type="text" name="user_phone" id="phone" placeholder="Enter your phone number" value="" aria-required="true" required>
                                         </fieldset>
                                         <fieldset class="fiel-text">
-                                            <label class="text-xs-2">Messenger</label>
+                                            <label class="text-xs-2">Message</label>
                                             <textarea placeholder="" aria-required="true" id="message" required name="message"></textarea>
                                         </fieldset>
-                                        <div class="pricing-list list-choose">
+                                        <!-- <div class="pricing-list list-choose">
                                             <div class="item text-body-2 choose-item font-poppins">&lt; $1,000</div>
                                             <div class="item text-body-2 choose-item font-poppins">$1,000 - $5,000</div>
                                             <div class="item text-body-2 choose-item font-poppins">$5,000 - $10,000</div>
                                             <div class="item text-body-2 choose-item font-poppins">$10,000 - $20,000</div>
                                             <div class="item text-body-2 choose-item font-poppins">&gt; $20,000</div>
-                                        </div>
+                                        </div> -->
                                         <div class="bot-btn send-wrap">
                                             <button type="submit" class="text-body-2 fw-medium">
                                                 <span class="font-poppins flex-grow-1 text-start">Get Started</span>
@@ -1107,6 +1047,79 @@
                     </div>
                 </section>
                 <!-- /section-contact -->
+                 <!-- section-faqs -->
+                                <section class="section-faqs" id="faqs">
+                    <div class="tf-container">
+                        <div class="row">
+                            <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
+                                <div class="text-display-2 fw-medium heading split-text effect-right">FAQs</div>
+                                <div class="accordion-wrap" id="accordion-1">
+                                    <div class="item active accordion-item scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        <h6 class="accordion-head fw-medium">
+                                            What technical services do you offer?
+                                            <span class="icon"></span>
+                                        </h6>
+                                        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#accordion-1">
+                                            <p class="text-body-2 fw-medium">
+                                                I specialize in full-stack development, cybersecurity solutions, system architecture, <br> and cloud infrastructure. My expertise includes building secure, scalable applications <br> using TypeScript, Python, React, and various cloud platforms.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item accordion-item collapsed scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        <h6 class="accordion-head fw-medium">
+                                            How do you approach new projects?
+                                            <span class="icon"></span>
+                                        </h6>
+                                        <div id="collapse2" class="accordion-collapse collapse " data-bs-parent="#accordion-1">
+                                            <p class="text-body-2 fw-medium">
+                                                I start with a thorough understanding of requirements, security considerations, <br> and business objectives. My process involves collaborative planning, iterative <br> development with regular feedback, and comprehensive testing before deployment.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item accordion-item collapsed scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        <h6 class="accordion-head fw-medium">
+                                            Can you handle both technical and creative projects?
+                                            <span class="icon"></span>
+                                        </h6>
+                                        <div id="collapse3" class="accordion-collapse collapse " data-bs-parent="#accordion-1">
+                                            <p class="text-body-2 fw-medium">
+                                                Absolutely! I bridge the gap between technical excellence and creative output. <br> Beyond coding, I offer photography, video editing, and script writing services, <br> bringing a unique perspective that combines analytical thinking with creative vision.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item accordion-item collapsed scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        <h6 class="accordion-head fw-medium">
+                                            What's your experience with cybersecurity?
+                                            <span class="icon"></span>
+                                        </h6>
+                                        <div id="collapse4" class="accordion-collapse collapse " data-bs-parent="#accordion-1">
+                                            <p class="text-body-2 fw-medium">
+                                                I've achieved top placements in CTF competitions and specialize in secure <br> application development. My expertise includes vulnerability assessment, <br> implementing security best practices, and keeping systems protected against emerging threats.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="item accordion-item collapsed scrolling-effect effectLeft" data-bs-toggle="collapse" role="button" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                        <h6 class="accordion-head fw-medium">
+                                            Do you provide ongoing support after project completion?
+                                            <span class="icon"></span>
+                                        </h6>
+                                        <div id="collapse5" class="accordion-collapse collapse " data-bs-parent="#accordion-1">
+                                            <p class="text-body-2 fw-medium">
+                                                Yes, I'm committed to the long-term success of every project. I offer <br> maintenance packages, security updates, and continuous improvements <br> to ensure your solution remains effective, secure, and up-to-date.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ask-me">
+                                    <div class="text-body-2 fw-medium text">Do you have any other questions?</div>
+                                    <a href="#contact" class="text-body-2 fw-medium link">Ask me directly</a>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </section>
+
+                <!-- /section-faqs -->
 
             </div>
             <!-- /wrapper-content -->
@@ -1120,7 +1133,7 @@
                     <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
                         <a href="#contact" class="cta">
                             <img class="lazyload signature" src="asset/images/section/signature-1.png" data-src="asset/images/section/signature-1.png" alt="">
-                            <!-- <div class="text-signature">Deepan</div> -->
+                <!-- <div class="text-signature">Deepan</div> -->
                             <div class="infiniteslide_wrap cta-infiniteslide style-1">
                                 <div class="infiniteslide">
                                     <div class="marquee-child-item">
@@ -1165,7 +1178,7 @@
                     </div>
                 </div>
             </div>
-            <img src="asset/images/section/img-bg-2.png" alt="" class="map">
+        <img src="asset/images/section/img-bg-2.png" alt="" class="map">
             <div class="box-gradient2"></div>
         </footer>
         <!-- /footer -->
@@ -1190,10 +1203,20 @@
     <script src="asset/js/handleeffectgsap.js"></script>
     <script src="asset/js/odometer.min.js"></script>
     <script src="asset/js/counter.js"></script>
-
+    
     <script src="asset/js/infinityslide.js"></script>
     <script src="asset/js/plugin.js"></script>
     <script src="asset/js/lightbox.min.js"></script>
+    <!-- EmailJS for contact form -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // EmailJS Public Key - Get this from your EmailJS dashboard > Account > API Keys
+            emailjs.init({
+                publicKey: "TpQIAacccPn1TlZic"
+            });
+        })();
+    </script>
     <script src="asset/js/main.js"></script>
     <!-- /Javascript -->
 
