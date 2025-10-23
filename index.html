@@ -1378,10 +1378,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- End Wrapper -->
 
     <!-- Javascript -->
-    <script defer src="asset/js/jquery.min.js"></script>
+    <!-- Critical scripts loaded synchronously -->
+    <script src="asset/js/jquery.min.js"></script>
+    <script src="asset/js/lazysize.min.js"></script>
+    
+    <!-- Non-critical scripts deferred -->
     <script defer src="asset/js/bootstrap.min.js"></script>
     <script defer src="asset/js/jquery.validate.min.js"></script>
-    <script defer src="asset/js/lazysize.min.js"></script>
     <script defer src="asset/js/wow.min.js"></script>
     <script defer src="asset/js/swiper-bundle.min.js"></script>
     <script defer src="asset/js/swiper.js"></script>
