@@ -1,0 +1,11 @@
+# Vercel ignore file
+node_modules
+.git
+.env.local
+.env
+*.log
+.DS_Store
+README.md
+EMAILJS-SETUP.md
+TROUBLESHOOTING.md
+asset/scss

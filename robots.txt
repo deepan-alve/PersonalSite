@@ -1,0 +1,18 @@
+# robots.txt for https://www.deepanalve.dev/
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow crawling of API endpoints (if any)
+Disallow: /api/
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.deepanalve.dev/sitemap.xml
