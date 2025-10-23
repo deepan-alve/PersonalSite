@@ -43,7 +43,9 @@
     <!-- Preconnect to improve performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     
     <!-- Language Alternates (if you plan multilingual) -->
     <link rel="alternate" hreflang="en" href="https://www.deepanalve.dev/">
@@ -54,6 +56,11 @@
     <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="asset/css/styles.css" as="style">
+    <link rel="preload" href="asset/js/main.js" as="script">
+    <link rel="preload" href="asset/font/fonts.css" as="style">
 
     <!-- Bootstrap  -->
     <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.css">
@@ -66,13 +73,19 @@
     <link rel="stylesheet" type="text/css" href="asset/css/lightbox.min.css">
 
     <!-- Animation Style -->
-    <link rel="stylesheet" type="text/css" href="asset/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="asset/css/animate.min.css" media="print" onload="this.media='all'">
 
     <!-- Font -->
     <link rel="stylesheet" href="asset/font/fonts.css">
     
     <!-- Icon -->
-    <link rel="stylesheet" type="text/css" href="asset/icons/icomoon/style.css">
+    <link rel="stylesheet" type="text/css" href="asset/icons/icomoon/style.css" media="print" onload="this.media='all'">
+    
+    <!-- Noscript fallback for deferred CSS -->
+    <noscript>
+        <link rel="stylesheet" href="asset/css/animate.min.css">
+        <link rel="stylesheet" href="asset/icons/icomoon/style.css">
+    </noscript>
     
 
     <!-- Favicon and Touch Icons  -->
@@ -294,13 +307,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Start Wrapper -->
     <div id="wrapper">
 
-        <video class="body-overlay" muted autoplay loop playsinline>
+        <video class="body-overlay" muted autoplay loop playsinline preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E">
             <source src="asset/images/bg-3d/video5.mp4" type="video/mp4">
         </video>
 
         <!-- tf-btn-menu -->
         <div class="tf-btn-menu">
-           <img src="asset/icons/dashboard.svg" alt="">
+           <img src="asset/icons/dashboard.svg" alt="Menu Icon">
         </div>
         <!-- /tf-btn-menu -->
 
@@ -492,7 +505,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- left-sidebar -->
         <div class="left-sidebar">
             <div class="heading">
-                <img src="asset/images/logo/logo-1.svg" alt="">
+                <img src="asset/images/logo/logo-1.svg" alt="Deepan Alve Logo">
                 <div class="box-status">
                     <div class="dot"></div>
                     <div class="text-body-1"><a href="asset/pdfs/Resume.pdf" target="_blank" style="text-decoration: none; color: inherit;">Download Resume</a></div>
@@ -500,10 +513,10 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="image">
                <div class="avatar avatar-wrap">
-                    <img class="lazyload avatar-bg" src="asset/images/avatar/avatar-full.png" data-src="asset/images/avatar/avatar-full.png" alt="">
-                    <img class="lazyload avatar-no-bg" style="display: none;" src="asset/images/avatar/avatar-1.png" data-src="asset/images/avatar/avatar-1.png" alt="">
+                    <img class="lazyload avatar-bg" src="asset/images/avatar/avatar-full.png" data-src="asset/images/avatar/avatar-full.png" alt="Deepan Alve - Full-Stack Developer and Cybersecurity Specialist" loading="lazy">
+                    <img class="lazyload avatar-no-bg" style="display: none;" src="asset/images/avatar/avatar-1.png" data-src="asset/images/avatar/avatar-1.png" alt="Deepan Alve Profile" loading="lazy">
                 </div>
-                <img class="lazyload signature" src="asset/images/section/signature-1.png" data-src="asset/images/section/signature-1.png" alt="">
+                <img class="lazyload signature" src="asset/images/section/signature-1.png" data-src="asset/images/section/signature-1.png" alt="Deepan Alve Signature" loading="lazy">
                 <!-- <div class="text-signature">Deepan</div> -->
             </div>
             <div class="infor">
@@ -650,7 +663,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <div class="works-wrap">
                                     <div class="works-item scrolling-effect effectLeft">
                                         <a class="image" href="asset/images/section/works-2.jpg" data-lightbox="example-1">
-                                            <img class="lazyload" src="asset/images/section/works-2.jpg" data-src="asset/images/section/works-2.jpg" alt="">
+                                            <img class="lazyload" src="asset/images/section/works-2.jpg" data-src="asset/images/section/works-2.jpg" alt="Stacked-MediaTracker Project - Full-Stack Application" loading="lazy">
                                         </a>
                                         <div class="content">
                                             <div class="infor">
@@ -667,7 +680,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </div>
                                     <div class="works-item scrolling-effect effectLeft">
                                         <a class="image" href="asset/images/section/works-1.jpg" data-lightbox="example-1">
-                                            <img class="lazyload" src="asset/images/section/works-1.jpg" data-src="asset/images/section/works-1.jpg" alt="">
+                                            <img class="lazyload" src="asset/images/section/works-1.jpg" data-src="asset/images/section/works-1.jpg" alt="Win My Argument - Mobile App Design" loading="lazy">
                                         </a>
                                         <div class="content">
                                             <div class="infor">
@@ -684,7 +697,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </div>
                                     <div class="works-item scrolling-effect effectLeft">
                                         <a class="image" href="asset/images/section/works-3.jpg" data-lightbox="example-1">
-                                            <img class="lazyload" src="asset/images/section/works-3.jpg" data-src="asset/images/section/works-3.jpg" alt="">
+                                            <img class="lazyload" src="asset/images/section/works-3.jpg" data-src="asset/images/section/works-3.jpg" alt="NGL-Hacked - Security Project" loading="lazy">
                                         </a>
                                         <div class="content">
                                             <div class="infor">
@@ -840,7 +853,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <div class="tech-stack-item">
                                                 <h3 class="fw-medium title">TypeScript</h3>
                                                 <div class="image">
-                                                    <img src="asset/images/section/figma.png" alt="">
+                                                    <img src="asset/images/section/figma.png" alt="TypeScript - Strongly Typed JavaScript" loading="lazy">
                                                 </div>
                                                 <div class="text-body-1">Strongly typed JavaScript <br> for scalable applications</div>
                                             </div>
@@ -849,7 +862,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <div class="tech-stack-item">
                                                 <h3 class="fw-medium title">React</h3>
                                                 <div class="image">
-                                                    <img src="asset/images/section/loom.png" alt="">
+                                                    <img src="asset/images/section/loom.png" alt="React - Component-Based Library" loading="lazy">
                                                 </div>
                                                 <div class="text-body-1">Component-based library <br> for dynamic UIs</div>
                                             </div>
@@ -858,7 +871,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <div class="tech-stack-item">
                                                 <h3 class="fw-medium title">Docker</h3>
                                                 <div class="image">
-                                                    <img src="asset/images/section/framer.png" alt="">
+                                                    <img src="asset/images/section/framer.png" alt="Docker - Containerization Platform" loading="lazy">
                                                 </div>
                                                 <div class="text-body-1">Containerization platform <br> for consistent deployment</div>
                                             </div>
@@ -867,7 +880,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <div class="tech-stack-item">
                                                 <h3 class="fw-medium title">Github</h3>
                                                 <div class="image">
-                                                    <img src="asset/images/section/slack.png" alt="">
+                                                    <img src="asset/images/section/slack.png" alt="GitHub - Version Control Platform" loading="lazy">
                                                 </div>
                                                 <div class="text-body-1">Version control and <br> collaboration platform</div>
                                             </div>
@@ -876,7 +889,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <div class="tech-stack-item">
                                                 <h3 class="fw-medium title">Python</h3>
                                                 <div class="image">
-                                                    <img src="asset/images/section/monday.png" alt="">
+                                                    <img src="asset/images/section/monday.png" alt="Python - Versatile Programming Language" loading="lazy">
                                                 </div>
                                                 <div class="text-body-1">Versatile language for <br> automation and security</div>
                                             </div>
@@ -885,7 +898,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <div class="tech-stack-item">
                                                 <h3 class="fw-medium title">Java</h3>
                                                 <div class="image">
-                                                    <img src="asset/images/section/java.png" alt="">
+                                                    <img src="asset/images/section/java.png" alt="Java - Enterprise Programming Language" loading="lazy">
                                                 </div>
                                                 <div class="text-body-1">Enterprise-grade language <br> for robust applications</div>
                                             </div>
@@ -938,7 +951,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 <div class="swiper-slide">
                                                     <div class="customer-info">
                                                         <div class="image">
-                                                            <img class="lazyload" src="asset/images/avatar/dhaskshitha.png" data-src="asset/images/avatar/dhaskshitha.png" alt="">
+                                                            <img class="lazyload" src="asset/images/avatar/dhaskshitha.png" data-src="asset/images/avatar/dhaskshitha.png" alt="Dhakshitha - Content Creator at Dzart" loading="lazy">
                                                         </div>
                                                         <div class="content">
                                                             <h6 class="name fw-medium">
@@ -951,7 +964,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 <div class="swiper-slide">
                                                     <div class="customer-info">
                                                         <div class="image">
-                                                            <img class="lazyload" src="asset/images/avatar/avatar-2.jpg" data-src="asset/images/avatar/avatar-2.jpg" alt="">
+                                                            <img class="lazyload" src="asset/images/avatar/avatar-2.jpg" data-src="asset/images/avatar/avatar-2.jpg" alt="Tejas - CEO of FanPit Technologies" loading="lazy">
                                                         </div>
                                                         <div class="content">
                                                             <h6 class="name fw-medium">
@@ -964,7 +977,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 <div class="swiper-slide">
                                                     <div class="customer-info">
                                                         <div class="image">
-                                                            <img class="lazyload" src="asset/images/avatar/avatar-3.png" data-src="asset/images/avatar/avatar-3.png" alt="">
+                                                            <img class="lazyload" src="asset/images/avatar/avatar-3.png" data-src="asset/images/avatar/avatar-3.png" alt="Viswanathan - Creator of Azhagi" loading="lazy">
                                                         </div>
                                                         <div class="content">
                                                             <h6 class="name fw-medium">
@@ -977,7 +990,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 <div class="swiper-slide">
                                                     <div class="customer-info">
                                                         <div class="image">
-                                                            <img class="lazyload" src="asset/images/avatar/avatar-4.png" data-src="asset/images/avatar/avatar-4.png" alt="">
+                                                            <img class="lazyload" src="asset/images/avatar/avatar-4.png" data-src="asset/images/avatar/avatar-4.png" alt="Jhoshua - CEO of Blitz" loading="lazy">
                                                         </div>
                                                         <div class="content">
                                                             <h6 class="name fw-medium">
@@ -1308,7 +1321,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="row">
                     <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
                         <a href="#contact" class="cta">
-                            <img class="lazyload signature" src="asset/images/section/signature-1.png" data-src="asset/images/section/signature-1.png" alt="">
+                            <img class="lazyload signature" src="asset/images/section/signature-1.png" data-src="asset/images/section/signature-1.png" alt="Deepan Alve Signature" loading="lazy">
                 <!-- <div class="text-signature">Deepan</div> -->
                             <div class="infiniteslide_wrap cta-infiniteslide style-1">
                                 <div class="infiniteslide">
@@ -1354,7 +1367,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </div>
-        <img src="asset/images/section/img-bg-2.png" alt="" class="map">
+        <img src="asset/images/section/img-bg-2.png" alt="Background Map Design" class="map" loading="lazy">
             <div class="box-gradient2"></div>
         </footer>
         <!-- /footer -->
@@ -1365,27 +1378,37 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- End Wrapper -->
 
     <!-- Javascript -->
-    <script src="asset/js/bootstrap.min.js"></script>
-    <script src="asset/js/jquery.min.js"></script>
-    <script src="asset/js/jquery.validate.min.js"></script>
-    <script src="asset/js/lazysize.min.js"></script>
-    <script src="asset/js/wow.min.js"></script>
-    <script src="asset/js/swiper-bundle.min.js"></script>
-    <script src="asset/js/swiper.js"></script>
-    <script src="asset/js/gsap.min.js"></script>
-    <script src="asset/js/Splitetext.js"></script>
-    <script src="asset/js/ScrollTrigger.min.js"></script>
-    <script src="asset/js/ScrollSmooth.js"></script>
-    <script src="asset/js/handleeffectgsap.js"></script>
-    <script src="asset/js/odometer.min.js"></script>
-    <script src="asset/js/counter.js"></script>
-    
-    <script src="asset/js/infinityslide.js"></script>
-    <script src="asset/js/plugin.js"></script>
-    <script src="asset/js/lightbox.min.js"></script>
+    <script defer src="asset/js/jquery.min.js"></script>
+    <script defer src="asset/js/bootstrap.min.js"></script>
+    <script defer src="asset/js/jquery.validate.min.js"></script>
+    <script defer src="asset/js/lazysize.min.js"></script>
+    <script defer src="asset/js/wow.min.js"></script>
+    <script defer src="asset/js/swiper-bundle.min.js"></script>
+    <script defer src="asset/js/swiper.js"></script>
+    <script defer src="asset/js/gsap.min.js"></script>
+    <script defer src="asset/js/Splitetext.js"></script>
+    <script defer src="asset/js/ScrollTrigger.min.js"></script>
+    <script defer src="asset/js/ScrollSmooth.js"></script>
+    <script defer src="asset/js/handleeffectgsap.js"></script>
+    <script defer src="asset/js/odometer.min.js"></script>
+    <script defer src="asset/js/counter.js"></script>
+    <script defer src="asset/js/infinityslide.js"></script>
+    <script defer src="asset/js/plugin.js"></script>
+    <script defer src="asset/js/lightbox.min.js"></script>
     <!-- Fetch polyfill for older browsers -->
-    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js"></script>
-    <script src="asset/js/main.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js"></script>
+    <script defer src="asset/js/main.js"></script>
+    
+    <!-- Register Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed'));
+            });
+        }
+    </script>
     <!-- /Javascript -->
 
 </body>
