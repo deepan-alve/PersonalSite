@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" prefix="og: https://ogp.me/ns#">
 <!--<![endif]-->
 
 <head>
@@ -39,10 +39,21 @@
     <meta name="geo.placename" content="Chennai">
     <meta name="geo.position" content="13.0827;80.2707">
     <meta name="ICBM" content="13.0827, 80.2707">
+    
+    <!-- Preconnect to improve performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Language Alternates (if you plan multilingual) -->
+    <link rel="alternate" hreflang="en" href="https://www.deepanalve.dev/">
+    <link rel="alternate" hreflang="x-default" href="https://www.deepanalve.dev/">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Bootstrap  -->
     <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.css">
@@ -101,6 +112,104 @@
         "https://github.com/deepan-alve",
         "https://www.instagram.com/licht.tik",
         "https://medium.com/@realtisme"
+      ]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What technical services do you offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I specialize in full-stack development, cybersecurity solutions, system architecture, and cloud infrastructure. My expertise includes building secure, scalable applications using TypeScript, Python, React, and various cloud platforms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you approach new projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I start with a thorough understanding of requirements, security considerations, and business objectives. My process involves collaborative planning, iterative development with regular feedback, and comprehensive testing before deployment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you handle both technical and creative projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! I bridge the gap between technical excellence and creative output. Beyond coding, I offer photography, video editing, and script writing services, bringing a unique perspective that combines analytical thinking with creative vision."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's your experience with cybersecurity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I've achieved top placements in CTF competitions and specialize in secure application development. My expertise includes vulnerability assessment, implementing security best practices, and keeping systems protected against emerging threats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide ongoing support after project completion?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, I'm committed to the long-term success of every project. I offer maintenance packages, security updates, and continuous improvements to ensure your solution remains effective, secure, and up-to-date."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Deepan Alve Portfolio",
+      "url": "https://www.deepanalve.dev",
+      "description": "Professional portfolio of Deepan Alve - Full-Stack Developer and Cybersecurity Specialist based in Chennai, India",
+      "author": {
+        "@type": "Person",
+        "name": "Deepan Alve"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.deepanalve.dev/#search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.deepanalve.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Portfolio",
+          "item": "https://www.deepanalve.dev/#works"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Contact",
+          "item": "https://www.deepanalve.dev/#contact"
+        }
       ]
     }
     </script>
@@ -425,15 +534,21 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- main-content -->
         <div class="main-content relative">
             <!-- section-hero -->
-            <section class="section-hero" id="home">
+            <section class="section-hero" id="home" itemscope itemtype="https://schema.org/Person">
                 <div class="tf-container">
                     <div class="row">
                         <div class="offset-xxl-5 col-xxl-7 offset-xl-4 col-xl-7 offset-lg-2 col-lg-8">
-                            <div class="text-body-1 infor split-text split-lines-transform">Chennai, India <span id="chennai-time"></span></div>
+                            <div class="text-body-1 infor split-text split-lines-transform">
+                                <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                                    <span itemprop="addressLocality">Chennai</span>, 
+                                    <span itemprop="addressCountry">India</span>
+                                </span>
+                                <span id="chennai-time"></span>
+                            </div>
                             <div class="main-title">
                                 <div class="text-body-1 dot-before subtitle">Introduction</div>
-                                <h1 class="title split-text effect-right">It takes gut to fall in love with something</h1>
-                                <div class="text-body-2 text">Driven Computer Science student specializing in cybersecurity and software development, recognized for top CTF placements and leadership in coding clubs. Skilled in building secure, modular full-stack apps and modernizing legacy systems, with expertise in TypeScript, Python, C++, React, and cloud platforms. Award-winning technologist and creative, bridging technical innovation with impactful user experiences in media, sports, and technology outreach.</div>
+                                <h1 class="title split-text effect-right" itemprop="name">It takes gut to fall in love with something</h1>
+                                <div class="text-body-2 text" itemprop="description">Driven Computer Science student specializing in <span itemprop="knowsAbout">cybersecurity</span> and <span itemprop="knowsAbout">software development</span>, recognized for top CTF placements and leadership in coding clubs. Skilled in building secure, modular full-stack apps and modernizing legacy systems, with expertise in <span itemprop="knowsAbout">TypeScript</span>, <span itemprop="knowsAbout">Python</span>, <span itemprop="knowsAbout">C++</span>, <span itemprop="knowsAbout">React</span>, and <span itemprop="knowsAbout">cloud platforms</span>. Award-winning technologist and creative, bridging technical innovation with impactful user experiences in media, sports, and technology outreach.</div>
                             </div>
                             <div class="indicators">
                                 <ul class="list-tags">

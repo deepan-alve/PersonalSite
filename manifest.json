@@ -1,0 +1,24 @@
+{
+  "name": "Deepan Alve Portfolio",
+  "short_name": "Deepan",
+  "description": "Full-Stack Developer & Cybersecurity Specialist based in Chennai, India",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/asset/images/logo/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/asset/images/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["portfolio", "developer", "cybersecurity"],
+  "lang": "en-US"
+}

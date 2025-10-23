@@ -76,5 +76,10 @@
       "destination": "/",
       "permanent": true
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "github": {
+    "silent": true
+  }
 }
