@@ -55,30 +55,58 @@ export default async function handler(req, res) {
       });
     }
 
-    // Load EmailJS SDK
-    const { default: emailjs } = await import("@emailjs/browser");
+    // Prepare email HTML content
+    const emailHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
+          New Contact Form Submission
+        </h2>
+        <div style="margin: 20px 0;">
+          <p><strong>Name:</strong> ${user_name || 'Not provided'}</p>
+          <p><strong>Email:</strong> <a href="mailto:${user_email}">${user_email}</a></p>
+          <p><strong>Phone:</strong> ${user_phone || 'Not provided'}</p>
+        </div>
+        <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin-top: 20px;">
+          <h3 style="color: #555; margin-top: 0;">Message:</h3>
+          <p style="white-space: pre-wrap; color: #333;">${message}</p>
+        </div>
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+        <p style="color: #888; font-size: 12px;">
+          Sent from <a href="https://www.deepanalve.dev">www.deepanalve.dev</a> contact form
+        </p>
+      </div>
+    `;
 
-    // Send email using EmailJS with environment variables
-    const result = await emailjs.send(
-      process.env.EMAILJS_SERVICE_ID,
-      process.env.EMAILJS_TEMPLATE_ID,
-      {
-        user_name,
-        user_email,
-        user_phone,
-        message,
+    // Send email using Resend API
+    const resendResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
       },
-      {
-        publicKey: process.env.EMAILJS_PUBLIC_KEY,
-        // If you have a private key (for paid plans):
-        // privateKey: process.env.EMAILJS_PRIVATE_KEY
-      }
-    );
+      body: JSON.stringify({
+        from: "Contact Form <contact@email.deepanalve.dev>",
+        to: "deepanalve@gmail.com",
+        replyTo: user_email,
+        subject: `Portfolio Contact: ${user_name || 'New Message'}`,
+        html: emailHtml,
+      }),
+    });
+
+    // Check if email was sent successfully
+    if (!resendResponse.ok) {
+      const errorData = await resendResponse.json();
+      console.error("Resend API error:", errorData);
+      throw new Error(errorData.message || "Failed to send email");
+    }
+
+    const result = await resendResponse.json();
 
     // Return success
     return res.status(200).json({
       success: true,
       message: "Email sent successfully",
+      emailId: result.id,
     });
   } catch (error) {
     console.error("Contact form error:", error);
